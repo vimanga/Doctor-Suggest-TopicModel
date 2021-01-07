@@ -5,7 +5,10 @@ import requests
 from flask_cors import CORS
 import pandas as pd
 
+
+
 import nltk
+nltk.data.path.append('./nltk_data/')
 import gensim
 from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
