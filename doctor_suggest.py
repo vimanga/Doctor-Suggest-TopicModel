@@ -60,8 +60,7 @@ bow_corpus[1]
 
 bow_doc_x = bow_corpus[8]
 for i in range(len(bow_doc_x)):
-    print("Word {} (\"{}\") appears {} time.".format(bow_doc_x[i][0], 
-                                               dictionary[bow_doc_x[i][0]], bow_doc_x[i][1]))
+    print("Word {} (\"{}\") appears {} time.".format(bow_doc_x[i][0], dictionary[bow_doc_x[i][0]], bow_doc_x[i][1]))
 
 
 from gensim import corpora, models
@@ -98,7 +97,18 @@ unseen_document = 'Pain or burning during urination, Pain in the back'
 bow_vector = dictionary.doc2bow(preprocess(unseen_document))
 print(preprocess(unseen_document))
 
+
+
 #print(lda_copy[bow_vector])
 
 for index, score in sorted(lda_copy[bow_vector], key=lambda tup: -1*tup[1]):
     print("Score: {}\t Topic: {}".format(score, lda_model_tfidf.print_topic(index, 5)))
+
+# def predictx():
+#     i=0
+#     vec_lda_topics=[None]*20
+#     for x in bow_corpus:
+#         vec_lda_topics[i]=lda_model_tfidf[x]
+#         i=i+1
+#     print ('final : ', vec_lda_topics)
+#     return vec_lda_topics
